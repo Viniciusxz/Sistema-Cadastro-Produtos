@@ -1,6 +1,23 @@
-#0 Criação do menu:
-print('Bem vindo ao sistema de cadastro de produtos! Oque você deseja fazer? (Digite o número da ação que deseja realizar.)')
-print('1. VER PRODUTOS | 2. CADASTRAR PRODUTO | 3. EXCLUIR PRODUTO  | 4. LIMPAR LISTAS DE PRODUTOS | 5. SAIR ')
+#0 Criação do menu: (Com while)
+while True:
+    print('Bem vindo ao sistema de cadastro de produtos! Oque você deseja fazer? (Digite o número da ação que deseja realizar.)')
+    print('1. VER PRODUTOS | 2. CADASTRAR PRODUTO | 3. EXCLUIR PRODUTO  | 4. LIMPAR LISTAS DE PRODUTOS | 5. SAIR ')
+
+    menu_escolha = str(input(' '))
+
+    lista_produtos = []
+
+    if menu_escolha == "1":
+        print('Exibindo a lista de produtos...')
+        print(lista_produtos)
+    if menu_escolha == "2":
+    if menu_escolha == "3":
+    if menu_escolha == "4":
+    if menu_escolha == "5":
+        print('Saindo do sistema...')
+        break
+
+
 #1. Planejar o que é um produto (nome, codigo, quantidade, preço)
 #2. Criar armazenamento dos produtos (lista, listas de listas, dicionários)
 #3. Criação do menu do sistema: 1 - Ver produtos 2 - Cadastrar produto 3 - Excluir produto 4 - Limpar lista 5 - 
