@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 #1 Criação das funções e listas antes do while, para o phyton reconhecer as funções que existem.
 lista_produtos = []
 
@@ -21,6 +23,7 @@ def excluir_produtos_lista(): # Função que exclui todos os produtos da lista.
 print('Bem vindo ao sistema de cadastro de produtos! Oque você deseja fazer? (Digite o número da ação que deseja realizar.)')
 while True:
     # Criação do menu: (Com while)
+    print("\n-------------------------------------------")
     print('1. VER PRODUTOS | 2. CADASTRAR PRODUTO | 3. EXCLUIR PRODUTO  | 4. LIMPAR LISTAS DE PRODUTOS | 5. SAIR ')
 
     menu_escolha = str(input(' '))
@@ -35,12 +38,13 @@ while True:
         cadastro()
     elif menu_escolha == "3":
         print('Qual produto deseja remover da lista?')
-        print(lista_produtos)
+        for numero, produto_ofc in enumerate(lista_produtos, start=1):
+            print(f"{numero} - {produto_ofc}")
         excluir_cadastro() 
     elif menu_escolha == "4":
         excluir_produtos_lista()
     elif menu_escolha == "5":
-        print('Saindo do sistema...')
+        print('Saindo do sistema... Obrigado!')
         break
     else:
         print('Digite o número da ação corretamente!')
