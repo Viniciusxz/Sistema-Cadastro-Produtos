@@ -18,15 +18,14 @@ def excluir_produtos_lista(): # Função que exclui todos os produtos da lista.
     lista_produtos.clear()
     print('Produtos removidos da lista com sucesso!')
 
-
+print('Bem vindo ao sistema de cadastro de produtos! Oque você deseja fazer? (Digite o número da ação que deseja realizar.)')
 while True:
     # Criação do menu: (Com while)
-    print('Bem vindo ao sistema de cadastro de produtos! Oque você deseja fazer? (Digite o número da ação que deseja realizar.)')
     print('1. VER PRODUTOS | 2. CADASTRAR PRODUTO | 3. EXCLUIR PRODUTO  | 4. LIMPAR LISTAS DE PRODUTOS | 5. SAIR ')
 
     menu_escolha = str(input(' '))
     if menu_escolha == "1":
-        print('Exibindo a lista de produtos...:')
+        print('Exibindo a lista de produtos:')
         if not  lista_produtos:
             print("Nenhum produto foi cadastrado ainda!")
         else:
