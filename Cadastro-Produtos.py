@@ -1,21 +1,28 @@
-#0 Criação do menu: (Com while)
+#1 Criação das funções e listas antes do while, para o phyton reconhecer as funções que existem.
+lista_produtos = []
+def cadastro():
+    produto_nome = str(input('Digite o nome do produto que deseja cadastrar: '))
+    lista_produtos.append(produto_nome)
+    print('Produto cadastrado com sucesso!')
+
 while True:
+    # Criação do menu: (Com while)
     print('Bem vindo ao sistema de cadastro de produtos! Oque você deseja fazer? (Digite o número da ação que deseja realizar.)')
     print('1. VER PRODUTOS | 2. CADASTRAR PRODUTO | 3. EXCLUIR PRODUTO  | 4. LIMPAR LISTAS DE PRODUTOS | 5. SAIR ')
 
     menu_escolha = str(input(' '))
-
-    lista_produtos = []
-
     if menu_escolha == "1":
         print('Exibindo a lista de produtos...')
         print(lista_produtos)
-    if menu_escolha == "2":
-    if menu_escolha == "3":
-    if menu_escolha == "4":
-    if menu_escolha == "5":
+    elif menu_escolha == "2":
+        cadastro()
+    elif menu_escolha == "3":
+    elif menu_escolha == "4":
+    elif menu_escolha == "5":
         print('Saindo do sistema...')
         break
+    else:
+        print('Digite o número da ação corretamente!')
 
 
 #1. Planejar o que é um produto (nome, codigo, quantidade, preço)
