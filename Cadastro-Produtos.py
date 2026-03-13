@@ -1,5 +1,6 @@
 #1 Criação das funções e listas antes do while, para o phyton reconhecer as funções que existem.
 lista_produtos = []
+
 def cadastro(): # Função que faz o usuário cadastrar seu produto.
     produto_nome = str(input('Digite o nome do produto que deseja cadastrar: '))
     lista_produtos.append(produto_nome)
@@ -25,14 +26,18 @@ while True:
 
     menu_escolha = str(input(' '))
     if menu_escolha == "1":
-        print('Exibindo a lista de produtos...')
-        print(lista_produtos)
+        print('Exibindo a lista de produtos...:')
+        if not  lista_produtos:
+            print("Nenhum produto foi cadastrado ainda!")
+        else:
+            for numero, produto_ofc in enumerate(lista_produtos, start=1):
+                print(f"{numero} - {produto_ofc}") # Aqui, foi criado uma sintaxe que permite o usuário visualizar melhor a lista de produtos.
     elif menu_escolha == "2":
         cadastro()
     elif menu_escolha == "3":
         print('Qual produto deseja remover da lista?')
         print(lista_produtos)
-        if 
+        excluir_cadastro() 
     elif menu_escolha == "4":
         excluir_produtos_lista()
     elif menu_escolha == "5":
