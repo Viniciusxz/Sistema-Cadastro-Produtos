@@ -1,9 +1,22 @@
 #1 Criação das funções e listas antes do while, para o phyton reconhecer as funções que existem.
 lista_produtos = []
-def cadastro():
+def cadastro(): # Função que faz o usuário cadastrar seu produto.
     produto_nome = str(input('Digite o nome do produto que deseja cadastrar: '))
     lista_produtos.append(produto_nome)
     print('Produto cadastrado com sucesso!')
+
+def excluir_cadastro(): # Função que analisa se determinado produto está dentro da lista para remoção, se estiver, será apagado, se não, será alertado.
+    remover_produto = str(input('Digite o nome do produto que deseja remover: '))
+    if remover_produto in lista_produtos:
+        lista_produtos.remove(remover_produto)
+        print('Produto removido com sucesso!')
+    else:
+        print('Este produto não está dentro da lista!')
+
+def excluir_produtos_lista(): # Função que exclui todos os produtos da lista.
+    lista_produtos.clear()
+    print('Produtos removidos da lista com sucesso!')
+
 
 while True:
     # Criação do menu: (Com while)
@@ -17,7 +30,11 @@ while True:
     elif menu_escolha == "2":
         cadastro()
     elif menu_escolha == "3":
+        print('Qual produto deseja remover da lista?')
+        print(lista_produtos)
+        if 
     elif menu_escolha == "4":
+        excluir_produtos_lista()
     elif menu_escolha == "5":
         print('Saindo do sistema...')
         break
