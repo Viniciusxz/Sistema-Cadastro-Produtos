@@ -5,17 +5,24 @@ lista_produtos = []
 
 def cadastro(): # Função que faz o usuário cadastrar seu produto.
     produto_nome = str(input('Digite o nome do produto que deseja cadastrar: '))
-    lista_produtos.append(produto_nome)
+    produto_quantidade = int(input('Digite a quantidade do produto: '))
+    produto_preco = float(input('Digite o preço do produto: '))
+    sublista = [produto_nome, produto_quantidade, produto_preco]
+    lista_produtos.append(sublista)
     print('Produto cadastrado com sucesso!')
 
 def excluir_cadastro(): # Função que analisa se determinado produto está dentro da lista para remoção, se estiver, será apagado, se não, será alertado.
-    remover_produto = str(input('Digite o nome do produto que deseja remover: '))
-    if remover_produto in lista_produtos:
-        lista_produtos.remove(remover_produto)
-        print('Produto removido com sucesso!')
-    else:
+    excluir_produto = str(input('Digite o nome do produto que deseja excluir: '))
+    produto_encontrado = False # Aqui utilizei a logica false, pois essa variavel anda com excluir_produto, ou seja,
+    for produto_excluir in lista_produtos:
+        if excluir_produto == produto_excluir[0]:
+            lista_produtos.remove(produto_excluir)
+            print('Produto removido com sucesso!')
+            produto_encontrado = True
+            break
+    if produto_encontrado == False:
         print('Este produto não está dentro da lista!')
-
+        
 def excluir_produtos_lista(): # Função que exclui todos os produtos da lista.
     lista_produtos.clear()
     print('Produtos removidos da lista com sucesso!')
@@ -33,13 +40,13 @@ while True:
             print("Nenhum produto foi cadastrado ainda!")
         else:
             for numero, produto_ofc in enumerate(lista_produtos, start=1):
-                print(f"{numero} - {produto_ofc}") # Aqui, foi criado uma sintaxe que permite o usuário visualizar melhor a lista de produtos.
+                print(f"{numero} - {produto_ofc[0]} | Quantidade: {produto_ofc[1]} | Preço: {produto_ofc[2]}") # Aqui, foi criado uma sintaxe que permite o usuário visualizar melhor a lista de produtos.
     elif menu_escolha == "2":
         cadastro()
     elif menu_escolha == "3":
         print('Qual produto deseja remover da lista?')
         for numero, produto_ofc in enumerate(lista_produtos, start=1):
-            print(f"{numero} - {produto_ofc}")
+            print(f"{numero} - {produto_ofc[0]} | Quantidade: {produto_ofc[1]} | Preço: {produto_ofc[2]}")
         excluir_cadastro() 
     elif menu_escolha == "4":
         excluir_produtos_lista()
