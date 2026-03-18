@@ -23,6 +23,15 @@ def exibir_grafico(): # Função que faz um gráfico (com mathplotlib) baseado n
     print('Exibindo o gráfico baseado no nome e quantidade do produto!')
     plt.show()
 
+    while True:
+      voltar = int(input('Digite 0 para retornar ao menu: '))
+      if voltar == 0:
+        return
+      else:
+        print('Digite novamente o número 0 para retornar ao menu!')
+
+
+
 print('Bem vindo ao sistema de cadastro de produtos! Oque você deseja fazer? (Digite o número da ação que deseja realizar.)')
 while True:
     # Criação do menu: (Com while)
