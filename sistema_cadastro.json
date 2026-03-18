@@ -1,0 +1,14 @@
+[
+    {
+        "id": 2,
+        "nome": "Doce de leite 300g",
+        "quantidade": 400,
+        "preco": 8.3
+    },
+    {
+        "id": 3,
+        "nome": "Leite 1L",
+        "quantidade": 700,
+        "preco": 9.5
+    }
+]

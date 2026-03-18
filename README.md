@@ -50,6 +50,7 @@ Para gerar gráficos com base na quantidade de produtos cadastrados.
 - Python
 - Git (Envio de commits, push e sincronia com repositório) 
 - Github
+- JSON (Para salvar arquivos após ser fechado, evitando as informações ficarem salvas apenas na memória.)
 
 
 ## Como Executar

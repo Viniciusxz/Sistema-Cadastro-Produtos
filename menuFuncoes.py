@@ -1,4 +1,18 @@
+import json
 from validacoes import verificar_nome_produto, verificar_preco_float, verificar_quantidade_inteiro
+
+implementacao_json = "sistema_cadastro.json"
+def salvar_produtos(lista_produtos): # Função em json que salva os produtos cadastrados
+    with open(implementacao_json, "w", encoding="utf-8") as arquivos:
+        json.dump(lista_produtos, arquivos, indent=4, ensure_ascii=False)
+
+def carregar_produtos(): # Função de json que carrega os produtos automaticamente
+    try:
+        with open(implementacao_json, "r", encoding="utf-8") as arquivos:
+            lista_produtos = json.load(arquivos)
+            return lista_produtos
+    except FileNotFoundError:
+        return []
 def cadastro(lista_produtos, contador_id): # Função que faz o usuário cadastrar seu produto.
     produto_nome = verificar_nome_produto()
     if produto_nome == "0":
@@ -11,6 +25,7 @@ def cadastro(lista_produtos, contador_id): # Função que faz o usuário cadastr
         "preco":verificar_preco_float()
     } 
     lista_produtos.append(dicionario_produto)
+    salvar_produtos(lista_produtos)
     print('Produto cadastrado com sucesso!')
     return contador_id + 1
 
@@ -34,6 +49,7 @@ def atualizar_cadastro(lista_produtos): # Função que atualiza os status de um 
             atualizar_preco = verificar_preco_float()
             produto_atualizar["quantidade"] = atualizar_quantidade
             produto_atualizar["preco"] = atualizar_preco
+            salvar_produtos(lista_produtos)
             print('Produto atualizado com sucesso!')
             atualizar_encontrado = True
             break
@@ -48,6 +64,7 @@ def excluir_cadastro(lista_produtos): # Função que analisa se determinado prod
     for produto_excluir in lista_produtos:
         if excluir_produto == produto_excluir["id"]:
             lista_produtos.remove(produto_excluir)
+            salvar_produtos(lista_produtos)
             print('Produto removido com sucesso!')
             produto_encontrado = True
             break
@@ -56,4 +73,5 @@ def excluir_cadastro(lista_produtos): # Função que analisa se determinado prod
         
 def excluir_produtos_lista(lista_produtos): # Função que exclui todos os produtos da lista.
     lista_produtos.clear()
+    salvar_produtos(lista_produtos)
     print('Produtos removidos da lista com sucesso!')

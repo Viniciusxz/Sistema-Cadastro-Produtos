@@ -1,11 +1,16 @@
 import matplotlib.pyplot as plt
 from exibicao import exibicao_produtos
-from menuFuncoes import cadastro, atualizar_cadastro, excluir_cadastro, excluir_produtos_lista
+from menuFuncoes import cadastro, atualizar_cadastro, excluir_cadastro, excluir_produtos_lista, salvar_produtos, carregar_produtos
 from validacoes import verificar_nome_produto, verificar_preco_float, verificar_quantidade_inteiro
 
 #1 Criação das funções e listas antes do while, para o phyton reconhecer as funções que existem.
-lista_produtos = []
-contador_id = 1 
+lista_produtos = carregar_produtos()
+
+if lista_produtos:
+    contador_id = max(produto["id"] for produto in lista_produtos) + 1
+else:
+   contador_id = 1 
+
 
 def exibir_grafico(): # Função que faz um gráfico (com mathplotlib) baseado no nome do produto e quantidade dele,1
     nome_produto = []
